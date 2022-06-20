@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row mat-3">
+    <div class="col">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group col">
+          <label>Title</label>
+          <select formControlName="title" class="form-control">
+            <option value=""></option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Ms">Ms</option>
+          </select>
+          <div *ngIf="f['title'].touched && f['title'].invalid" class="validation-msg">
+            <div *ngIf="f['title'].errors && f['title'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input formControlName="firstName" id="firstName" type="text" class="form-control">
+          <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="validation-msg">
+            <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">First Name is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input formControlName="lastName" id="lastName" type="text" class="form-control">
+          <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="validation-msg">
+            <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">Last Name is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input formControlName="userName" id="userName" type="text" class="form-control">
+          <div *ngIf="f['userName'].touched && f['userName'].invalid" class="validation-msg">
+            <div *ngIf="f['userName'].errors && f['userName'].errors['required']">User Name is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input formControlName="email" id="email" type="email" class="form-control">
+          <div *ngIf="f['email'].touched && f['email'].invalid" class="validation-msg">
+            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+            <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input formControlName="password" id="password" type="password" class="form-control">
+          <div *ngIf="f['password'].touched && f['password'].invalid" class="validation-msg">
+            <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+          </div>
+        </div>
+
+    <div class="form-group">
+      <label for="password">Confirm Password</label>
+      <input formControlName="confirmpassword" id="confirmpassword" type="password" class="form-control">
+      <div *ngIf="f['confirmpassword'].touched && f['confirmpassword'].invalid" class="validation-msg">
+        <div *ngIf="f['confirmpassword'].errors && f['confirmpassword'].errors['required']">confirm Password is
+          required.</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="form-check-label">Gender</label>
+      <div class="row">
+
+        <div class="col-md-6">
+          <input required type="radio" class="form-check-input" value="male" name="gender" formControlName="gender">
+          <label class="form-check-label">Male</label>
+        </div>
+        <div class="col-md-6">
+          <input required type="radio" name="gender" value="female" class="form-check-input" formControlName="gender">
+          <label class="form-check-label">Female</label>
+        </div>
+      </div>
+      <div *ngIf="f['gender'].touched && f['gender'].invalid" class="validation-msg">
+        <div *ngIf="f['gender'].errors && f['gender'].errors['required']">Gender is required</div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group form-check">
+      <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+      <label class="control-label font-weight-bold">Accept Terms & Conditions</label>
+      <div *ngIf="f['acceptTerms'].touched && f['acceptTerms'].invalid" class="validation-msg">
+        <div *ngIf="f['acceptTerms'].errors && f['acceptTerms'].errors['required']">Terms and Conditions are required
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class='form-btn'>
+      <button class="btn btn-primary" [disabled]="registerForm.invalid" type="submit">Submit</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
